@@ -2,12 +2,16 @@ import sys
 import requests
 import uuid
 from datetime import datetime, timezone
+import urllib3
+
 
 from util.analytics.application_info import ApplicationSelector, BaseApplication
 from util.analytics.log_reader import BztFileReader, ResultsFileReader
 from util.conf import TOOLKIT_VERSION
 from util.analytics.analytics_utils import get_os, convert_to_sec, get_timestamp, get_date, is_all_tests_successful, \
     uniq_user_id, generate_report_summary, get_first_elem, generate_test_actions_by_type
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 JIRA = 'jira'
 CONFLUENCE = 'confluence'
