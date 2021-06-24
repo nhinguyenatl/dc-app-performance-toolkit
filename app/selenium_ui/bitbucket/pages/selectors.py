@@ -27,6 +27,9 @@ class UrlManager:
         self.projects_params = '/projects'
         self.branches_base_branch = f'/projects/{self.project_key}/repos/{self.repo_slug}/branches?base='
 
+    def host_url(self):
+        return f"{self.host}"
+
     def create_pull_request_url(self, from_branch, to_branch):
         return f"{self.host}/projects/{self.project_key}/repos/{self.repo_slug}/pull-requests?create&targetBranch=" \
                f"refs%2Fheads%2F{to_branch}&sourceBranch=refs%2Fheads%2F{from_branch}"
@@ -198,7 +201,6 @@ class PullRequestLocator:
     del_branch_checkbox_selector = {'6': (By.CSS_SELECTOR, 'span.pull-request-cleanup-checkbox-wrapper'),
                                     '7': (By.NAME, 'deleteSourceRef')}
     delete_branch_per_merge_checkbox = (By.CSS_SELECTOR, "input[type='checkbox']")
-
 
 class BranchesLocator:
 
