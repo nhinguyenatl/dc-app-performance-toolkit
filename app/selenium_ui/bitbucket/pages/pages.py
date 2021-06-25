@@ -1,11 +1,9 @@
 from selenium.webdriver.common.keys import Keys
-
 from selenium_ui.base_page import BasePage
 from selenium_ui.bitbucket.pages.selectors import LoginPageLocators, GetStartedLocators, \
     DashboardLocators, ProjectsLocators, ProjectLocators, RepoLocators, RepoNavigationPanelLocators, PopupLocators, \
     PullRequestLocator, BranchesLocator, RepositorySettingsLocator, UserSettingsLocator, RepoCommitsLocator, \
     LogoutPageLocators, UrlManager
-
 
 class LoginPage(BasePage):
     page_url = UrlManager().login_url()
@@ -93,7 +91,7 @@ class PopupManager(BasePage):
 
     def dismiss_default_popup(self):
         return self.dismiss_popup(PopupLocators.default_popup, PopupLocators.popup_1, PopupLocators.popup_2,
-                                  PopupLocators.popup_3)
+                                  PopupLocators.popup_3, PopupLocators.popup_4)
 
 
 class Repository(BasePage):

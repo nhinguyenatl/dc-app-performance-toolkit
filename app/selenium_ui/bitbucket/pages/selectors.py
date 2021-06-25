@@ -85,6 +85,7 @@ class PopupLocators:
     popup_1 = '.css-1it7f5o'
     popup_2 = 'button.aui-button-link.feature-discovery-close'
     popup_3 = '.css-15p34h1'
+    popup_4 = '.css-1dqf51u'
 
 
 class LoginPageLocators:
@@ -113,7 +114,8 @@ class DashboardLocators:
     dashboard_params = UrlManager().dashboard_params
     dashboard_url = UrlManager().dashboard_url()
 
-    dashboard_presence = {'6': (By.CLASS_NAME, 'dashboard-your-work'), '7': (By.CLASS_NAME, 'dashboard-your-work')}
+    # dashboard_presence = {'6': (By.CLASS_NAME, 'dashboard-your-work'), '7': (By.CLASS_NAME, 'dashboard-your-work')}
+    dashboard_presence = {'6': (By.CLASS_NAME, 'dashboard-your-work'), '7': (By.CSS_SELECTOR, 'div#dashboard-container>.main-panel')}
 
 
 class ProjectsLocators:
@@ -197,7 +199,6 @@ class PullRequestLocator:
     del_branch_checkbox_selector = {'6': (By.CSS_SELECTOR, 'span.pull-request-cleanup-checkbox-wrapper'),
                                     '7': (By.NAME, 'deleteSourceRef')}
     delete_branch_per_merge_checkbox = (By.CSS_SELECTOR, "input[type='checkbox']")
-
 
 class BranchesLocator:
 

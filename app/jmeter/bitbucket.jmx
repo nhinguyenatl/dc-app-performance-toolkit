@@ -41,7 +41,7 @@
           </elementProp>
           <elementProp name="application.ssh_hostname" elementType="Argument">
             <stringProp name="Argument.name">application.ssh_hostname</stringProp>
-            <stringProp name="Argument.value">${__P(application_hostname, test_bitbucket_instance.atlassian.com)}</stringProp>
+            <stringProp name="Argument.value">${__P(ssh_hostname, test_bitbucket_instance.atlassian.com)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tmp.dir" elementType="Argument">
@@ -103,7 +103,7 @@
         <stringProp name="HTTPSampler.path">${application.postfix}</stringProp>
         <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
         <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-        <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        <stringProp name="HTTPSampler.response_timeout">300000</stringProp>
       </ConfigTestElement>
       <hashTree/>
       <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">

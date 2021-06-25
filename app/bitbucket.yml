@@ -4,9 +4,10 @@ settings:
   aggregator: consolidator
   verbose: false
   env:
-    application_hostname: test_bitbucket_instance.atlassian.com   # Bitbucket DC hostname without protocol and port e.g. test-bitbucket.atlassian.com or localhost
-    application_protocol: http      # http or https
-    application_port: 80            # 80, 443, 8080, 7990 etc
+    application_hostname: instenv-1851-nwsl.instenv.internal.atlassian.com   # Bitbucket DC hostname without protocol and port e.g. test-bitbucket.atlassian.com or localhost
+    application_protocol: https      # http or https
+    application_port: 443            # 80, 443, 8080, 7990 etc
+    ssh_hostname: instenv-1851-nwsl-alt-9dcb9fafac68f684.elb.ap-southeast-2.amazonaws.com  # Found in Server settings page
     secure: True                    # Set False to allow insecure connections, e.g. when using self-signed SSL certificate
     application_postfix:            # e.g. /bitbucket in case of url like http://localhost:7990/bitbucket
     admin_login: admin
@@ -53,6 +54,7 @@ scenarios:
       application_protocol: ${application_protocol}
       application_port: ${application_port}
       application_postfix: ${application_postfix}
+      ssh_hostname: ${ssh_hostname}
       total_actions_per_hr: ${total_actions_per_hour}
       tmp_dir: /tmp
       ssh_key_url: https://centaurus-datasets.s3.us-east-2.amazonaws.com/bitbucket/ssh/id_rsa
