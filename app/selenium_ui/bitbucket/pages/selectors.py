@@ -27,9 +27,6 @@ class UrlManager:
         self.projects_params = '/projects'
         self.branches_base_branch = f'/projects/{self.project_key}/repos/{self.repo_slug}/branches?base='
 
-    def host_url(self):
-        return f"{self.host}"
-
     def create_pull_request_url(self, from_branch, to_branch):
         return f"{self.host}/projects/{self.project_key}/repos/{self.repo_slug}/pull-requests?create&targetBranch=" \
                f"refs%2Fheads%2F{to_branch}&sourceBranch=refs%2Fheads%2F{from_branch}"
@@ -88,6 +85,7 @@ class PopupLocators:
     popup_1 = '.css-1it7f5o'
     popup_2 = 'button.aui-button-link.feature-discovery-close'
     popup_3 = '.css-15p34h1'
+    popup_4 = '.css-1dqf51u'
 
 
 class LoginPageLocators:

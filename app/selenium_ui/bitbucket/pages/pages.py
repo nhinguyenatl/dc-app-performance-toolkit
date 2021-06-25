@@ -91,7 +91,7 @@ class PopupManager(BasePage):
 
     def dismiss_default_popup(self):
         return self.dismiss_popup(PopupLocators.default_popup, PopupLocators.popup_1, PopupLocators.popup_2,
-                                  PopupLocators.popup_3)
+                                  PopupLocators.popup_3, PopupLocators.popup_4)
 
 
 class Repository(BasePage):
@@ -177,17 +177,6 @@ class PullRequest(BasePage):
         self.page_url = url_manager.pull_request_overview()
         self.diff_url = url_manager.pull_request_diff()
         self.commits_url = url_manager.pull_request_commits()
-        self.driver.execute_script("""
-                 alert('%s');
-                 await fetch('%s/rest/chaperone/1/chaperone/7.0-pull-request', {
-                      credentials: 'include',
-                      method: 'PUT',
-                      headers: {
-                          'Content-type': 'application/x-www-form-urlencoded',
-                      },
-                      body: 'the-value-doesnt-matter',
-                  });
-               """ %(url_manager.host_url(),url_manager.host_url()))
 
     def wait_for_overview_tab(self):
         return self.wait_until_visible(PullRequestLocator.pull_request_activity_content)
