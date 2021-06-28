@@ -1,7 +1,6 @@
 from util.conf import JSM_SETTINGS
 from selenium.webdriver.common.by import By
 
-
 class PopupLocators:
     default_popup = '.aui-message .icon-close'
     popup_1 = 'form.tip-footer>.helptip-close'
