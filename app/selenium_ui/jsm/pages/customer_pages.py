@@ -71,7 +71,10 @@ class CustomerPortal(BasePage):
     def create_and_submit_request(self):
         self.get_element(CustomerPortalSelectors.summary_field).\
             send_keys(f'Selenium - {self.generate_random_string(5)}')
-        self.get_element(CustomerPortalSelectors.description_field).\
+
+        self.wait_until_visible(CustomerPortalSelectors.description_wysiwyg_field)
+        self.get_element(CustomerPortalSelectors.description_wysiwyg_field).click()
+        self.get_element(CustomerPortalSelectors.description_wysiwyg_field).\
             send_keys(f'Selenium - Description {self.generate_random_string(5)}')
 
         # If required dropdown
@@ -107,7 +110,9 @@ class CustomerRequest(BasePage):
     def comment_request(self):
         self.wait_until_visible(RequestSelectors.comment_request_field)
         self.get_element(RequestSelectors.comment_request_field).click()
-        self.get_element(RequestSelectors.comment_request_field).\
+        self.wait_until_visible(RequestSelectors.comment_request_wysiwyg_field)
+        self.get_element(RequestSelectors.comment_request_wysiwyg_field).click()
+        self.get_element(RequestSelectors.comment_request_wysiwyg_field).\
             send_keys(f'Selenium comment - {self.generate_random_string(10)}')
         self.wait_until_clickable(RequestSelectors.add_comment_button)
         self.get_element(RequestSelectors.add_comment_button).click()

@@ -1,5 +1,4 @@
 import random
-
 from selenium_ui.base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 from selenium_ui.jsm.pages.agent_selectors import LoginPageLocators, PopupLocators, DashboardLocators, LogoutLocators, \
@@ -105,7 +104,7 @@ class ViewCustomerRequest(BasePage):
             comment_text_field = self.get_element(ViewCustomerRequestLocators.comment_text_field)
             self.action_chains().move_to_element(comment_text_field).click()\
                 .send_keys_to_element(comment_text_field, comment_text).perform()
-
+        self.wait_until_visible(ViewCustomerRequestLocators.comment_internally_btn)
         self.get_element(ViewCustomerRequestLocators.comment_internally_btn).click()
         self.wait_until_visible(ViewCustomerRequestLocators.comment_collapsed_textarea)
 
